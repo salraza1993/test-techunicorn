@@ -1,0 +1,35 @@
+:root {
+  --social-icon-size: 40px;
+  --transition: all .3s ease-in-out;
+  --icon-size: 45px;
+  --bs-primary: #F3692E;
+  --bs-primary-rgb: 220, 53, 69;
+  --hero-banner-height: 300px;
+  --aside-width: 300px;
+  --aside-ad-height: 320px;
+  --coupon-card-height: 285px;
+
+  --base-font: 'DM Sans', sans-serif;
+  --marriweather: 'Merriweather', serif, var(--base-font);
+}
+.btn {
+  &-primary {
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: #b54718;
+    --bs-btn-hover-border-color: #b54718;
+  }
+  &.disabled {
+    --bs-btn-disabled-color: #2a211d;
+    --bs-btn-disabled-bg: #dbc8c0;
+    --bs-btn-disabled-border-color: #dbc8c0;
+    pointer-events: auto;
+    cursor: not-allowed;
+  }
+  &-outline-primary {
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-color: var(--bs-primary);
+    --bs-btn-hover-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: var(--bs-primary);
+  }
+}

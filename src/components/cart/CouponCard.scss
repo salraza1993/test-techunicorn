@@ -1,0 +1,28 @@
+.coupon__card {
+  &__container {
+    position: relative;
+    background-color: rgba(var(--bs-primary-rgb), .15);
+    border-radius: .75rem;
+    padding: calc(1.25rem + 1vw);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: var(--coupon-card-height);
+    input {
+      border-radius: .4rem;
+      background-color: var(--bs-white);
+      width: 100%;
+      height: var(--icon-size);
+      border: 0 solid var(--bs-primary);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      outline: none;
+      transition: var(--transition);
+      &::placeholder { color: var(--bs-dark)}
+      &:focus {
+        background-color: var(--bs-white);
+      }
+    }
+  }
+}

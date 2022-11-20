@@ -1,0 +1,31 @@
+.bareadcrumb {
+  &__container {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    list-style: none;
+  }
+  &__list {
+    position: relative;
+    &:not(:first-child)::before {
+      content: '/';
+      display: inline-flex;
+      margin-inline: .5rem;
+    }
+    &__link {
+      position: relative;
+      display: inline-flex;
+      text-decoration: none;
+      color: var(--bs-secondary);
+      transition: var(--transition);
+      &.active {
+        color: var(--bs-dark);
+        font-weight: 600;
+        &:hover {
+          color: var(--bs-primary);
+        }
+      }
+    }
+  }
+}
