@@ -43,28 +43,7 @@
         }
       }
     }
-    .quantity {
-      position: relative;
-      display: flex;
-      span {
-        width: var(--icon-size);
-        height: var(--icon-size);
-        display: grid;
-        place-items: center;
-        transition: var(--transition);
-        font-weight: bold;
-        background-color: var(--bs-gray-100);
-        &.value { width: calc(var(--icon-size) * 1.5);}
-        &:not(.value) {
-          border-radius: 0.45rem;
-        }
-        &:not(.value):hover {
-          cursor: pointer;
-          background-color: var(--bs-primary);
-          color: var(--bs-white);
-        }
-      }
-    }
+    
   }
   &__discription {
     position: relative;

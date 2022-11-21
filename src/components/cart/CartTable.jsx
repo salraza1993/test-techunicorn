@@ -1,25 +1,11 @@
 import './CartTable.scss'
 import { Link } from 'react-router-dom'
 
-function CartTable({cartItems, removeFromCart, setCartItems}) {
+function CartTable({cartItems, removeFromCart, setCartItems, increaseQuantity, decreaseQuantity}) {
 
-  function increaseQuantity(index) {
-    let cart = cartItems;
-    const currentItem = cartItems[index]
-    cart[index] = {...cartItems[index], quantity: currentItem.quantity+1, price: currentItem.price * currentItem.quantity+1}
-    setCartItems(JSON.parse(JSON.stringify(cart)))
-  }
+  
 
-  function decreaseQuantity(index) {
-    let cart = cartItems;
-    const currentItem = cart[index];
-    cart[index] = {...cartItems[index], quantity: cartItems[index].quantity-1, price: currentItem.price / currentItem.quantity-1}
-    if(cart[index].quantity === 0) {
-      cart.splice(index, 1);
-    }
-    setCartItems(JSON.parse(JSON.stringify(cart)))
-  }
-
+  
   return <div className="cart__table__container">
     <div className="cart__table__head">
       <div className="cart__table__row head__row">
@@ -42,7 +28,13 @@ function CartTable({cartItems, removeFromCart, setCartItems}) {
               </div>
             </div>
             <div className="cart__table__cell">${item.price}</div>
-            <div className="cart__table__cell"><button onClick={(e) => increaseQuantity(index)}>+</button>{item.quantity} <button onClick={() => decreaseQuantity(index)}>-</button></div>
+            <div className="cart__table__cell">
+              <div className="quantity">
+                <span className='minus' onClick={() => decreaseQuantity(index)}>-</span>
+                <span className='value'>{item.quantity}</span>
+                <span className='plus' onClick={ (e) => increaseQuantity(index) }>+</span>
+              </div>
+            </div>
             <div className="cart__table__cell">
               <div className="d-flex justify-content-between align-items-center w-100">
                 <strong>${item.price * item?.quantity || 1}</strong>

@@ -7,7 +7,9 @@ function Product({data, addToCart}) {
   const { id, image, title, discription, price, category } = data;
   return <div className="product__card__container list__type">
     <div className="product__card__image">
-      <img src={image} alt="" />
+      <Link to={'product-details/'+ id}>
+        <img src={image} alt="" />
+      </Link>
       <div className="cta__button">
         <div className="icon" onClick={() => addToCart(id)}>
           <svg className="pe-none" width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +29,9 @@ function Product({data, addToCart}) {
         { category.split(' ').map(letter => letter[0].toUpperCase() + letter.slice(1)).join(' ') }
         {/* { category.split(' ').map(letter => letter[0].toUpperCase() + letter.slice(1)).join(' ') } */}
       </small>
-      <Link to={'product-details/'+ id}><h5 className="merriweather fw-bolder">{title}</h5></Link>
+      <Link to={'product-details/'+ id}>
+        <h5 className="merriweather fw-bolder">{title}</h5>
+      </Link>
       <p>{discription}</p>
       <h4 className="text-primary merriweather">${price}</h4>
     </div>

@@ -90,6 +90,32 @@ function App() {
   }
   useEffect(() => { }, [cartItems]);
 
+  function increaseQuantity(index) {
+    let cart = cartItems;
+    const currentItem = cartItems[index]
+    cart[index] = {
+      ...cartItems[index], 
+      quantity: currentItem.quantity + 1, 
+      price: currentItem.price * currentItem.quantity + 1
+    }
+    setCartItems(JSON.parse(JSON.stringify(cart)))
+  }
+
+  function decreaseQuantity(index) {
+    let cart = cartItems;
+    const currentItem = cart[index];
+    cart[index] = {
+      ...cartItems[index],
+      quantity: cartItems[index].quantity - 1, 
+      price: currentItem.price / currentItem.quantity - 1
+    }
+    if(cart[index].quantity === 0) {
+      cart.splice(index, 1);
+    }
+    setCartItems(JSON.parse(JSON.stringify(cart)))
+  }
+
+
   // ======================== Search based filtering ======================== //
   const setSearchedProducts = () => {
     if(searchQuery && searchQuery.length > 2) {
@@ -124,10 +150,24 @@ function App() {
           />
         } />
         <Route path='/cart' element={
-          <Cart setCartItems={setCartItems} cartItems={cartItems} removeFromCart={removeFromCart} />
+          <Cart 
+            setCartItems={setCartItems} 
+            cartItems={cartItems} 
+            removeFromCart={removeFromCart} 
+            increaseQuantity={increaseQuantity}
+            decreaseQuantity={decreaseQuantity}
+          />
         } />
         <Route path='/wishlist' element={<Wishlist />} />
-        <Route path="/product-details/:id" element={<ProductDetails />} />
+        <Route path="/product-details/:id" element={
+          <ProductDetails 
+            removeFromCart={removeFromCart} 
+            addToCart={addToCart}
+            increaseQuantity={increaseQuantity}
+            decreaseQuantity={decreaseQuantity}  
+          />
+        } 
+        />
       </Routes>
       <RecommendedItems getAllProducts={getAllProducts} />
       <Footer />

@@ -52,6 +52,14 @@
     text-align: center;
     padding-inline: 1rem;
     padding-block: calc(1rem + .25vw) calc(1.5rem + .5vw);
+    a { 
+      color: var(--bs-dark); 
+      text-decoration: none; 
+      transition: var(--transition);
+      &:hover {
+        color: var(--bs-primary);
+      }
+    }
   }
   
 }

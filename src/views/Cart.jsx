@@ -3,7 +3,7 @@ import CartTable from '../components/cart/CartTable'
 import CoupenCard from '../components/cart/CoupenCard'
 import HeroBanner from '../components/herobanner/HeroBanner';
 
-function Cart({cartItems, removeFromCart, setCartItems}) {
+function Cart({cartItems, removeFromCart, setCartItems, increaseQuantity, decreaseQuantity}) {
   const [cartTotals, setCartTotals] = useState(null);
 
   useEffect(() => {
@@ -15,7 +15,13 @@ function Cart({cartItems, removeFromCart, setCartItems}) {
       <HeroBanner heading={'Shopping Bag'} banner={"https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da"} />
       <section className='product__listing__section'>
         <div className="container">
-          <CartTable setCartItems={setCartItems} cartItems={cartItems} removeFromCart={removeFromCart} />
+          <CartTable 
+            setCartItems={setCartItems} 
+            cartItems={cartItems} 
+            removeFromCart={removeFromCart}
+            increaseQuantity={increaseQuantity}
+            decreaseQuantity={decreaseQuantity}
+          />
           <div className="row mt-5">
             <div className="col-12 col-lg-6">
               <CoupenCard />
